@@ -41,6 +41,10 @@ def main():
     # )
     driver = webdriver.Chrome(options=options)
 
+    # dlフォルダの存在チェック
+    if not os.path.exists("dl"):
+        os.mkdir("dl")
+
     # ニコニコログイン
     driver.get('https://account.nicovideo.jp/login')
     driver.find_element_by_id('input__mailtel').send_keys(nico_id)
